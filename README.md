@@ -37,4 +37,4 @@ td.CodeReview{
 	}
 ```
 
-<img src="https://github.com/helloyuzz/Redmine/blob/master/screenshot.png?raw=true" width="600px">
+<img src="https://github.com/helloyuzz/Redmine/blob/master/screenshot.png?raw=true" width="800px">
