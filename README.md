@@ -36,3 +36,5 @@ td.CodeReview{
 	background-position-x: center;min-width: 40px;
 	}
 ```
+
+<img src="https://github.com/helloyuzz/Redmine/blob/master/screenshot.png?raw=true" width="600px">
