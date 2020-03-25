@@ -1,0 +1,44 @@
+https://www.redmine.org/issues/787
+Hi all,
+
+I am confused in this issue for a long time and found a solution finally.
+
+The following web page is the reference.
+http://huawuya.blog.hexun.com/62094448_d.html
+
+I did two steps to solve this problem.
+
+1.execute following instruction to let your computer trust SVN Server.
+
+svn ls --config-option config:auth:store-auth-creds=yes https://111.222.111.222:8443/svn/myproject
+
+2. Modify [redmine]\lib\redmine\scm\adapters\subversion_adapter.rb line 265:
+
+from
+
+str << " --no-auth-cache --non-interactive"
+
+to
+
+str << " --no-auth-cache --non-interactive --config-dir \"C:/Documents and Settings/myaccount/Application Data/Subversion\""
+
+for win7 :
+
+to
+
+"--no-auth-cache --non-interactive --config-dir C:/Users/CD-SVN/AppData/Roaming/Subversion"
+
+then restart redmine and it worked!!
+
+Hope it will work for your environment.
+
+
+参考：
+svn ls --config-option config:auth:store-auth-creds=yes https://192.168.3.11:8443/svn/Packpress/
+
+修改文件：
+C:\Bitnami\redmineplusagile-4.1.0-8\apps\redmineplusagile\htdocs\lib\redmine\scm\adapters\subversion_adapter.rb
+256行：
+          str << " --no-auth-cache --non-interactive"
+replace to:
+str << " --trust-server-cert --no-auth-cache --non-interactive --config-dir C:/Users/Administrator/AppData/Roaming/Subversion"

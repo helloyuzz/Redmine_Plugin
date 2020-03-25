@@ -1,0 +1,38 @@
+https://github.com/haru/redmine_code_review/issues/17
+
+
+解压附件压缩包至redmine的plugins目录
+bundle exec rake redmine:plugins:migrate RAILS_ENV=production
+重新启动redmine
+在项目设置页面中启用该模块
+在代码评审设置页面选择代码评审的跟踪标签
+
+//--------------------------------------------------------------------------------------------------------------------------
+
+I fixed that issue by following steps.
+
+Replace 'config/routes.rb' to following file.
+	2928834#diff-21497849d8f00507c9c8dcaf6288b136L1
+
+/*
+RedmineApp::Application.routes.draw do
+  #map.connect 'projects/:id/code_review/:action', :controller => 'code_review'
+  match 'projects/:id/code_review/:action', :controller => 'code_review', :via => [:get, :post]
+  match 'projects/:id/code_review_settings/:action', :controller => 'code_review_settings', :via => [:get, :post, :put, :patch]
+
+  get 'projects/:id/repository/revisions/:rev/:action(/*path)',
+     :controller => 'repositories',
+     :format => false,
+     :constraints => {
+           :action => /(browse|show|entry|raw|annotate|diff)/,
+           :rev    => /[a-z0-9\.\-_]+/
+         }
+end
+*/
+
+
+Exec commands.
+	bundle exec rake tmp:cache:clear
+	bundle exec rake assets:clobber RAILS_ENV=production
+	bundle exec rake assets:precompile RAILS_ENV=production
+Restart Redmine.

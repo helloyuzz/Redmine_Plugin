@@ -1,0 +1,5 @@
+Do NOT install plugins as a ROOT user
+Copy unziped plugin directory into REDMINE_ROOT/plugins
+Run $ bundle install
+Run $ rake db:migrate RAILS_ENV=production
+Run $ rake redmine:plugins:migrate RAILS_ENV=production

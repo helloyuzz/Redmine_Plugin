@@ -1,0 +1,1 @@
+image_paste.js复制到/redmine/apps/redmine/htdocs/public/plugin_assets/redmine_image_clipboard_paste/javascripts/目录中
