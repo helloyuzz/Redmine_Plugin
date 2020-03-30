@@ -1,0 +1,18 @@
+<div id="license-show" style="display:none;">
+  <h3 class="title"><%= l(:label_agile_license) %></h3>
+
+  <%= text_area_tag :lic, (render :file => '../../doc/LICENSE'), size: "85x50", :style => "width: 100%; border: 0px; font-size: 15px;", :readonly => true %>
+
+  <%= form_tag( agree_lic_path, :method => :get, :remote => true) do %>
+
+    <p class="buttons">
+      <%= submit_tag l(:label_agile_button_agree), :name => nil, :onclick => "hideModal(this);" %>
+
+    </p>
+  <% end %>
+</div>
+<% if Setting.plugin_redmine_agile["license_accepted"] != "1" && User.current.type != "AnonymousUser" %>
+  <script type="text/javascript">
+      showModal('license-show', '830px');
+  </script>
+<% end %>

@@ -1,0 +1,18 @@
+<% if User.current.allowed_to?(:view_agile_charts, @project, :global => true) %>
+
+   
+    <h3><%= l(:label_agile_chart_plural) %></h3>
+   
+
+  <ul>
+     
+    <li><%= upgrade_to_pro_agile_chart_link 'burnup' %></li>
+    <li><%= upgrade_to_pro_agile_chart_link 'issues_velocity' %></li>
+    <li><%= upgrade_to_pro_agile_chart_link 'lead_time' %></li>
+    <li><%= upgrade_to_pro_agile_chart_link 'trackers_cumulative_flow' %></li>
+     
+  </ul>
+<% end %>
+ 
+  <%= render :partial => "bitnami/pro_popup" %>
+ 

@@ -1,0 +1,52 @@
+<style type="text/css">
+  .right_col li{
+    margin-bottom: 13px;
+  }
+
+  #upgrade-to-pro p{
+    height: 23px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+  }
+
+</style>
+<div id="upgrade-to-pro" class="modal" style="display:none;">
+  <h3 class="title"><%= l(:label_agile_upgrade_to_pro) %></h3>
+
+  <div class="main-block" style="width: 95%">
+    <div class="left_col" style="float: left" >
+      <%= image_tag "/plugin_assets/redmine_agile/images/pro_version_agile.png" %>
+      <p style="font-size: 16px;">35% discount code: BTN138327468</p>
+    </div>
+    <div class="right_col" style="padding-top: 40px; padding-left: 325px" >
+      <lo style="list-style-type: none">
+        <li class='icon icon-checked'>
+          <%= l(:label_agile_saving_boards) %>
+        </li>
+        <li class='icon icon-checked'>
+          <%= l(:label_agile_horizontal_swim_lines) %>
+        </li>
+        <li class='icon icon-checked'>
+          <%= l(:label_agile_board_sub_columns) %>
+        </li>
+        <li class='icon icon-checked'>
+          <%= l(:label_agile_additional_agile_charts) %>
+        </li>
+        <li class='icon icon-checked'>
+          <%= l(:label_agile_coloured_issue_cards) %>
+        </li>
+        <li class='icon icon-checked'>
+          <%= l(:label_agile_4_more_features) %>
+        </li>
+      </lo>
+
+
+    </div>
+      <p class="buttons" style="float: right;">
+        <%= link_to submit_tag("Upgrade", :name => nil), "https://www.redmineup.com/pages/plugins/agile#pricing?utm_source=bitnami&utm_medium=partner&utm_campaign=bitnami" %>
+        <%= submit_tag l(:button_cancel), :name => nil, :onclick => "hideModal(this);", :type => 'button' %>
+      </p>
+  </div>
+
+</div>
